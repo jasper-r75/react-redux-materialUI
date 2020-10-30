@@ -5,14 +5,14 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import Typography from '@material-ui/core/Typography'
 import {useSelector, useDispatch} from 'react-redux'
-import setMobileOpen from '../reducers/setMobileOpen'
+import {mobileOpenState} from '../actions'
 
 const MyAppBar = (props) => {
     const dispatch = useDispatch()
     const mobileOpen = useSelector(state => state.mobileOpen)
 
     const handleDrawerToggle = () => {
-        dispatch(setMobileOpen(!mobileOpen))
+        dispatch(mobileOpenState(!mobileOpen))
     }
 
     return (

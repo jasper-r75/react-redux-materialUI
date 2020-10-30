@@ -27,7 +27,6 @@ function SidebarItem(props) {
         }
         
     }        
-    //console.log(cardMediaStr.toString())
     return (        
         <Card>            
             {mediaSection} 

@@ -6,17 +6,17 @@ import Toolbar from '@material-ui/core/Toolbar'
 import DrawerMenu from './DrawerMenu'
 import { useTheme } from '@material-ui/core/styles'
 import {useSelector, useDispatch} from 'react-redux'
-import setMobileOpen from '../reducers/setMobileOpen'
+import {mobileOpenState} from '../actions'
 
 function ResponsiveDrawer(props) {
     const theme = useTheme()    
     const dispatch = useDispatch()
     const mobileOpen = useSelector(state => state.mobileOpen)
-
+    
     const handleDrawerToggle = () => {
-        dispatch(setMobileOpen(!mobileOpen))
+        return dispatch(mobileOpenState(!mobileOpen))
     }
-        
+    
     const drawer = (
         <div>
             <Toolbar className={props.classes.toolbar} />
@@ -24,9 +24,8 @@ function ResponsiveDrawer(props) {
             <DrawerMenu/>                                   
         </div>
     )
-        
+    
     const container =  window.document.body 
-
     return (
         <div className={props.classes.drawer} aria-label="mailbox folders">
                     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}                

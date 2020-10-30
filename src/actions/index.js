@@ -37,6 +37,6 @@ export const sidebarMenuLoadState = (sidebarState) =>{
 export const mobileOpenState = (mobileOpen) =>{
    return {
         type: 'MOBILE_OPEN_STATE',
-        payload: mobileOpenState
+        payload: mobileOpen
    } 
 }  

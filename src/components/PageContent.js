@@ -38,7 +38,7 @@ const PageContent = (props) => {
                         {article.author ? (<Typography variant="subtitle2" component="p" className="author">Author: {article.author}</Typography>) : null}
                     <MarkDown>{content}</MarkDown>
                     </Grid>
-                    <Grid item sm={4} >
+                    <Grid item xs={12} sm={4} >
                         <ContentSidebar sidebarItems={article.Sidebar} />                       
                     </Grid>                
             </Grid>    
