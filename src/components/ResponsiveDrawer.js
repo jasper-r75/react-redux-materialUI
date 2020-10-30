@@ -27,9 +27,8 @@ function ResponsiveDrawer(props) {
     
     const container =  window.document.body 
     return (
-        <div className={props.classes.drawer} aria-label="mailbox folders">
-                    {/* The implementation can be swapped with js to avoid SEO duplication of links. */}                
-                    <Hidden mdUp implementation="css"> 
+        <div className={props.classes.drawer} aria-label="menu items">                                    
+                    <Hidden mdUp implementation="js"> 
                             <Drawer
                                 container={container}
                                 variant="temporary"

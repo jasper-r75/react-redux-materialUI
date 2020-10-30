@@ -21,7 +21,8 @@ const PageContent = (props) => {
         axios.get(`http://10.0.15.7:1337/pages/${id}`).then(        
         response => {
             dispatch(contentLoadState(false))
-            dispatch(setContent(response.data))           
+            dispatch(setContent(response.data))
+            isLoading = false          
             return response.data
         }).catch(err =>console.log(err))
     }
@@ -32,7 +33,7 @@ const PageContent = (props) => {
         console.log(article)
         return(
         <div id="page-content">                           
-                <Grid container spacing={2}>
+                <Grid container spacing={5}>
                     <Grid item xs={12} sm={8}>
                         <Typography variant="h4">{article.title}</Typography>
                         {article.author ? (<Typography variant="subtitle2" component="p" className="author">Author: {article.author}</Typography>) : null}
@@ -45,8 +46,11 @@ const PageContent = (props) => {
         </div>
         ) 
     }
-    else{
+    else if (article.id === id){
         return (<p>Loading Article...</p>)    
+    }
+    else{
+        return (<p>Article not found...</p>)    
     }
     
 }
