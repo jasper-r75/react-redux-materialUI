@@ -6,7 +6,7 @@ export default function ContentSidebar(props) {
     return (
         <div id="sidebar-right">
             {items.map((item) =>{
-                return (<SidebarItem key={item.id} title={item.Title} content={item.Content} />)
+                return (<SidebarItem key={item.id} item={item} />)
             })  }          
         </div>
     )
