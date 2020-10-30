@@ -1,5 +1,10 @@
 import React from 'react'
 import ResponsiveDrawer from './components/ResponsiveDrawer'
+import MyAppBar from './components/MyAppBar'
+import MainSection from './components/MainSection'
+import AppTheme from './AppTheme'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import {BrowserRouter as Router } from 'react-router-dom'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 
 const theme = createMuiTheme( {
@@ -33,10 +38,21 @@ const theme = createMuiTheme( {
    });
 
 const App = () => {
+      const classes = AppTheme()
+
       return (
      <div>
           <ThemeProvider theme={theme}>
-               <ResponsiveDrawer /> 
+          <div className={classes.root}>
+              <CssBaseline /> 
+              <Router>             
+                  <MyAppBar classes={classes} title="My Material-UI boilerplate"/>     
+                  <ResponsiveDrawer classes={classes} />
+                  <main className={classes.content}>
+                      <MainSection className={classes.content}/>
+                  </main>                  
+              </Router>                  
+          </div>
           </ThemeProvider>    
      </div>
      
