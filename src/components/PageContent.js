@@ -5,6 +5,7 @@ import MarkDown from 'markdown-to-jsx'
 import axios from 'axios'
 import {contentLoadState, setContent} from '../actions'
 import {useDispatch, useSelector} from 'react-redux'
+import ContentSidebar from './ContentSidebar'
 
 let isLoading = false
 const PageContent = (props) => { 
@@ -20,15 +21,15 @@ const PageContent = (props) => {
         axios.get(`http://10.0.15.7:1337/pages/${id}`).then(        
         response => {
             dispatch(contentLoadState(false))
-            dispatch(setContent(response.data))
-            console.log(response.data)
+            dispatch(setContent(response.data))           
             return response.data
         }).catch(err =>console.log(err))
     }
     
     if (article.id === id){
         isLoading = false
-        const content = article.ArticleContent.replace(':3000',':1337')
+        const content = article.ArticleContent
+        console.log(article)
         return(
         <div id="page-content">                           
                 <Grid container spacing={2}>
@@ -38,7 +39,7 @@ const PageContent = (props) => {
                     <MarkDown>{content}</MarkDown>
                     </Grid>
                     <Grid item sm={4} >
-                        <div id="sidebar-right"></div>
+                        <ContentSidebar sidebarItems={article.Sidebar} />                       
                     </Grid>                
             </Grid>    
         </div>
