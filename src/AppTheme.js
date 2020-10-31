@@ -34,11 +34,12 @@ const AppTheme = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
-    marginTop: '4em',
-    [theme.breakpoints.up('xs')]: {
-      marginTop: '5em'
-    }
+    padding: theme.spacing(4, 2),
+    marginTop: '64px',
+    [theme.breakpoints.down('xs')]: {
+     padding: theme.spacing(1),
+     marginTop: '58px',
+    },    
   },
 }));
 

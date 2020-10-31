@@ -1,6 +1,10 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
+import Card from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
 import MarkDown from 'markdown-to-jsx'
 import axios from 'axios'
 import {contentLoadState, setContent} from '../actions'
@@ -31,13 +35,22 @@ const PageContent = (props) => {
         isLoading = false
         const content = article.ArticleContent
         console.log(article)
+        const authorStr = article.author ? `Author: ${article.author}` : null
         return(
-        <div id="page-content">                           
-                <Grid container spacing={5}>
+        <div id="page-content">                         
+                <Grid container spacing={2}>
                     <Grid item xs={12} sm={8}>
-                        <Typography variant="h4">{article.title}</Typography>
-                        {article.author ? (<Typography variant="subtitle2" component="p" className="author">Author: {article.author}</Typography>) : null}
-                    <MarkDown>{content}</MarkDown>
+                        <Card style={{marginBottom: '2rem'}}>
+                            {
+                            article.CoverImage ? (
+                                <CardMedia style={{height: '320px'}} image={article.CoverImage.url} />
+                                
+                                ) : null }                           
+                            <CardHeader title={article.title} subheader={authorStr}/>
+                            <CardContent>
+                                <MarkDown>{content}</MarkDown>
+                            </CardContent>                      
+                        </Card>                        
                     </Grid>
                     <Grid item xs={12} sm={4} >
                         <ContentSidebar sidebarItems={article.Sidebar} />                       
