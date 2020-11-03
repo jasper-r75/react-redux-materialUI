@@ -1,5 +1,4 @@
 import React from 'react'
-import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardHeader from '@material-ui/core/CardHeader'
@@ -34,11 +33,10 @@ const PageContent = (props) => {
     if (article.id === id){
         isLoading = false
         const content = article.ArticleContent
-        console.log(article)
         const authorStr = article.author ? `Author: ${article.author}` : null
         return(
         <div id="page-content">                         
-                <Grid container spacing={2}>
+                <Grid container spacing={2} style={{padding: '20px'}}>
                     <Grid item xs={12} sm={8}>
                         <Card style={{marginBottom: '2rem'}}>
                             {

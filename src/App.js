@@ -2,6 +2,7 @@ import React from 'react'
 import ResponsiveDrawer from './components/ResponsiveDrawer'
 import MyAppBar from './components/MyAppBar'
 import MainSection from './components/MainSection'
+import MyFooter from './components/MyFooter'
 import AppTheme from './AppTheme'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import {BrowserRouter as Router } from 'react-router-dom'
@@ -48,10 +49,11 @@ const App = () => {
               <CssBaseline /> 
               <Router>             
                   <MyAppBar classes={classes} title="My Material-UI boilerplate"/>     
-                  <ResponsiveDrawer classes={classes} />
                   <main className={classes.content}>
-                      <MainSection className={classes.content}/>
-                  </main>                  
+                      <ResponsiveDrawer classes={classes} />
+                      <MainSection className={classes.page}/>                      
+                  </main>
+                  <MyFooter />                  
               </Router>                  
           </div>
           </ThemeProvider>    

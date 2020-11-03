@@ -1,5 +1,4 @@
 import React from 'react'
-import Divider from '@material-ui/core/Divider'
 import Drawer from '@material-ui/core/Drawer'
 import Hidden from '@material-ui/core/Hidden'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -19,18 +18,16 @@ function ResponsiveDrawer(props) {
     
     const drawer = (
         <div>
-            <Toolbar className={props.classes.toolbar} />
-            <Divider />
+            <Toolbar className={props.classes.toolbar} />            
             <DrawerMenu/>                                   
         </div>
     )
     
-    const container =  window.document.body 
     return (
         <div className={props.classes.drawer} aria-label="menu items">                                    
                     <Hidden mdUp implementation="js"> 
                             <Drawer
-                                container={container}
+                                container={window.document.body}
                                 variant="temporary"
                                 anchor={theme.direction === 'rtl' ? 'right' : 'left'}
                                 open={mobileOpen}
@@ -46,7 +43,7 @@ function ResponsiveDrawer(props) {
                                 {drawer}
                             </Drawer>
                     </Hidden>
-                    <Hidden smDown implementation="css">
+                    <Hidden smDown implementation="js">
                     <Drawer
                         classes={{
                         paper: props.classes.drawerPaper,

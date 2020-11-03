@@ -40,3 +40,10 @@ export const mobileOpenState = (mobileOpen) =>{
         payload: mobileOpen
    } 
 }  
+export const footerLoadState = (footerData) =>{
+   return {
+        type: 'FOOTER_LOAD_STATE',
+        payload: footerData
+   } 
+}  
+  

@@ -16,7 +16,7 @@ const MyAppBar = (props) => {
     }
 
     return (
-        <AppBar position="fixed" className={props.classes.appBar} elevation={2}>
+        <AppBar position="relative" className={props.classes.appBar} elevation={2}>
                     <Toolbar>
                     <IconButton
                         color="inherit"

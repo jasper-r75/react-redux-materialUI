@@ -5,6 +5,7 @@ import setContentLoadState from './setContentLoadState'
 import contentSetter from './contentSetter'
 import sidebarMenuSetter from './sidebarMenuSetter'
 import setMobileOpen from './setMobileOpen'
+import footerSetter from './footerSetter'
 import {combineReducers} from 'redux'
 
 const allReducers = combineReducers({
@@ -15,6 +16,7 @@ const allReducers = combineReducers({
     contentData: contentSetter,
     contentLoading: setContentLoadState,
     mobileOpen: setMobileOpen,
+    footerData: footerSetter,
 })
 
 export default allReducers

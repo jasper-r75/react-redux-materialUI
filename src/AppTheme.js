@@ -5,14 +5,16 @@ const drawerWidth = 240;
 const AppTheme = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'stretch',
     fontFamily: 'Poppins, sans-serif'
    },  
   drawer: {
     flexShrink: 0,
+    display: 'flex',
     [theme.breakpoints.up('md')]: {
       width: drawerWidth,
-      fontFamily: 'Poppins, sans-serif'      
-      // zIndex: 0,
+      fontFamily: 'Poppins, sans-serif'
     },    
   },
   appBar: {
@@ -28,19 +30,23 @@ const AppTheme = makeStyles((theme) => ({
     },
   }, 
   // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
-  drawerPaper: {
+  //toolbar: theme.mixins.toolbar,
+  drawerPaper: {    
     width: drawerWidth,
+    position:'relative',
+    height: '100%'
   },
-  content: {
+  content: {  
+    display: 'flex',  
     flexGrow: 1,
-    padding: theme.spacing(4, 2),
-    marginTop: '64px',
-    [theme.breakpoints.down('xs')]: {
-     padding: theme.spacing(1),
-     marginTop: '58px',
-    },    
+    minHeight: '70vh',    
   },
+  page: {
+    padding: theme.spacing(3),
+    [theme.breakpoints.down('xs')]: {
+      padding: theme.spacing(1,2),
+    },
+  }
 }));
 
 export default AppTheme
